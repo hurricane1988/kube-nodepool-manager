@@ -2,9 +2,29 @@
 # This file is used to track the info used to scaffold your project
 # and allow the plugins properly work.
 # More info: https://book.kubebuilder.io/reference/project-config.html
-domain: github.io
+domain: codefuthure.io
 layout:
 - go.kubebuilder.io/v4
+multigroup: true
 projectName: kube-nodepool-manager
 repo: github.io/codeFuthure/kube-nodepool-manager
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: codefuthure.io
+  group: codefuthure
+  kind: NodePool
+  path: github.io/codeFuthure/kube-nodepool-manager/api/v1alpha1
+  version: v1alpha1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: codefuthure.io
+  group: codefuthure
+  kind: NodePoolBinding
+  path: github.io/codeFuthure/kube-nodepool-manager/api/v1alpha1
+  version: v1alpha1
 version: "3"
