@@ -19,6 +19,10 @@ package main
 import (
 	"crypto/tls"
 	"flag"
+	"fmt"
+	"github.io/codefuture/kube-nodepool-manager/pkg/kube"
+	"github.io/codefuture/kube-nodepool-manager/version"
+	"k8s.io/client-go/kubernetes"
 	"os"
 	"path/filepath"
 
@@ -88,6 +92,21 @@ func main() {
 	flag.Parse()
 
 	ctrl.SetLogger(zap.New(zap.UseFlagOptions(&opts)))
+
+	// Print terminal
+	clientSet, err := kubernetes.NewForConfig(ctrl.GetConfigOrDie())
+	if err != nil {
+		setupLog.Error(err, "failed to init kubernetes clientSet")
+		os.Exit(1)
+	}
+	kubeClients := kube.NewKubeClients(clientSet)
+	k8sVersion := ""
+	v := kubeClients.Version()
+	if v != nil {
+		k8sVersion = *v
+	}
+	version.Print(k8sVersion)
+	fmt.Println(version.Term())
 
 	// if the enable-http2 flag is false (the default), http/2 should be disabled
 	// due to its vulnerabilities. More specifically, disabling http/2 will
