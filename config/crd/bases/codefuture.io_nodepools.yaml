@@ -39,13 +39,114 @@ spec:
           spec:
             description: NodePoolSpec defines the desired state of NodePool.
             properties:
-              foo:
-                description: Foo is an example field of NodePool. Edit nodepool_types.go
-                  to remove/update
-                type: string
+              architecture:
+                description: Architecture specifies the node architecture (e.g., amd64,
+                  arm64)
+                items:
+                  type: string
+                type: array
+              cpuVendor:
+                description: CpuVendor specifies the CPU vendor (e.g., Intel, AMD)
+                items:
+                  type: string
+                type: array
+              kernelVersion:
+                description: KernelVersion specifies the version of the node's kernel
+                  (e.g., 5.4.0-42-generic)
+                items:
+                  type: string
+                type: array
+              kubeletVersion:
+                description: KubeletVersion specifies the version of kubelet installed
+                  on the node
+                items:
+                  type: string
+                type: array
+              nodeSelector:
+                additionalProperties:
+                  type: string
+                description: NodeSelector is used to dynamically select nodes for
+                  the pool based on labels
+                type: object
+              nodes:
+                description: Nodes is an optional list of node names in the pool
+                items:
+                  type: string
+                type: array
+              operatingSystem:
+                description: OperatingSystem specifies the operating system of the
+                  nodes (e.g., linux, windows)
+                items:
+                  type: string
+                type: array
+              osImage:
+                description: OSImage specifies the OS image (e.g., Ubuntu 20.04)
+                items:
+                  type: string
+                type: array
             type: object
           status:
             description: NodePoolStatus defines the observed state of NodePool.
+            properties:
+              availableNodes:
+                description: AvailableNodes contains the list of nodes in the pool
+                items:
+                  type: string
+                type: array
+              capacity:
+                description: Capacity defines the resource capacity of the NodePool
+                properties:
+                  cpu:
+                    type: string
+                  ephemeral-storage:
+                    type: string
+                  hugepages-1Gi:
+                    type: string
+                  hugepages-2Mi:
+                    type: string
+                  memory:
+                    type: string
+                  pods:
+                    type: string
+                required:
+                - cpu
+                - ephemeral-storage
+                - hugepages-1Gi
+                - hugepages-2Mi
+                - memory
+                - pods
+                type: object
+              nodeDetails:
+                additionalProperties:
+                  description: NodeDetail contains the information about nodes with
+                    specific properties
+                  properties:
+                    architecture:
+                      type: string
+                    count:
+                      type: integer
+                    cpuVendor:
+                      type: string
+                    kernelVersion:
+                      type: string
+                    kubeletVersion:
+                      type: string
+                    operatingSystem:
+                      type: string
+                    osImage:
+                      type: string
+                  required:
+                  - count
+                  type: object
+                description: NodeDetails stores nodes categorized by architecture,
+                  OS, etc.
+                type: object
+              nodes:
+                additionalProperties:
+                  type: string
+                description: Nodes stores the current state of each node (Schedulable,
+                  Unschedulable)
+                type: object
             type: object
         type: object
     served: true
