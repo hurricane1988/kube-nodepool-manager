@@ -1,4 +1,4 @@
-apiVersion: codefuthure.codefuthure.io/v1alpha1
+apiVersion: codefuture.io/v1alpha1
 kind: NodePool
 metadata:
   labels:

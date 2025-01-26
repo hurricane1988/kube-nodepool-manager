@@ -2,8 +2,8 @@
 # since it depends on service name and namespace that are out of this kustomize package.
 # It should be run by config/default
 resources:
-- bases/codefuthure.codefuthure.io_nodepools.yaml
-- bases/codefuthure.codefuthure.io_nodepoolbindings.yaml
+- bases/codefuture.io_nodepools.yaml
+- bases/codefuture.io_nodepoolbindings.yaml
 # +kubebuilder:scaffold:crdkustomizeresource
 
 patches:

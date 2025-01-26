@@ -1,5 +1,5 @@
 ## Append samples of your project ##
 resources:
-- codefuthure_v1alpha1_nodepool.yaml
-- codefuthure_v1alpha1_nodepoolbinding.yaml
+- v1alpha1_nodepool.yaml
+- v1alpha1_nodepoolbinding.yaml
 # +kubebuilder:scaffold:manifestskustomizesamples

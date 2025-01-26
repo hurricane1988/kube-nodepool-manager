@@ -4,9 +4,9 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.17.1
-  name: nodepools.codefuthure.codefuthure.io
+  name: nodepools.codefuture.io
 spec:
-  group: codefuthure.codefuthure.io
+  group: codefuture.io
   names:
     kind: NodePool
     listKind: NodePoolList

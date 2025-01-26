@@ -1,5 +1,5 @@
 /*
-Copyright 2025 codeFuthure.
+Copyright 2025 CodeFuture.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	codefuthurev1alpha1 "github.io/codeFuthure/kube-nodepool-manager/api/v1alpha1"
+	codefutureiov1alpha1 "github.io/codefuture/kube-nodepool-manager/api/v1alpha1"
 )
 
 var _ = Describe("NodePool Controller", func() {
@@ -40,13 +40,13 @@ var _ = Describe("NodePool Controller", func() {
 			Name:      resourceName,
 			Namespace: "default", // TODO(user):Modify as needed
 		}
-		nodepool := &codefuthurev1alpha1.NodePool{}
+		nodepool := &codefutureiov1alpha1.NodePool{}
 
 		BeforeEach(func() {
 			By("creating the custom resource for the Kind NodePool")
 			err := k8sClient.Get(ctx, typeNamespacedName, nodepool)
 			if err != nil && errors.IsNotFound(err) {
-				resource := &codefuthurev1alpha1.NodePool{
+				resource := &codefutureiov1alpha1.NodePool{
 					ObjectMeta: metav1.ObjectMeta{
 						Name:      resourceName,
 						Namespace: "default",
@@ -59,7 +59,7 @@ var _ = Describe("NodePool Controller", func() {
 
 		AfterEach(func() {
 			// TODO(user): Cleanup logic after each test, like removing the resource instance.
-			resource := &codefuthurev1alpha1.NodePool{}
+			resource := &codefutureiov1alpha1.NodePool{}
 			err := k8sClient.Get(ctx, typeNamespacedName, resource)
 			Expect(err).NotTo(HaveOccurred())
 

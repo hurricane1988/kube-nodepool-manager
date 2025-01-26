@@ -1,5 +1,5 @@
 /*
-Copyright 2025 codeFuthure.
+Copyright 2025 CodeFuture.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.io/codeFuthure/kube-nodepool-manager/test/utils"
+	"github.io/codefuture/kube-nodepool-manager/test/utils"
 )
 
 var (

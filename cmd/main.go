@@ -1,5 +1,5 @@
 /*
-Copyright 2025 codeFuthure.
+Copyright 2025 CodeFuture.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -37,8 +37,8 @@ import (
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
-	codefuthurev1alpha1 "github.io/codeFuthure/kube-nodepool-manager/api/v1alpha1"
-	"github.io/codeFuthure/kube-nodepool-manager/internal/controller"
+	codefutureiov1alpha1 "github.io/codefuture/kube-nodepool-manager/api/v1alpha1"
+	"github.io/codefuture/kube-nodepool-manager/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -50,7 +50,7 @@ var (
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
-	utilruntime.Must(codefuthurev1alpha1.AddToScheme(scheme))
+	utilruntime.Must(codefutureiov1alpha1.AddToScheme(scheme))
 	// +kubebuilder:scaffold:scheme
 }
 
@@ -184,7 +184,7 @@ func main() {
 		WebhookServer:          webhookServer,
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "7cf89c9e.codefuthure.io",
+		LeaderElectionID:       "0f7be550.codefuture.io",
 		// LeaderElectionReleaseOnCancel defines if the leader should step down voluntarily
 		// when the Manager ends. This requires the binary to immediately end when the
 		// Manager is stopped, otherwise, this setting is unsafe. Setting this significantly

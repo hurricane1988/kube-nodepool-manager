@@ -1,4 +1,6 @@
-go mod init github.io/codeFuthure/kube-nodepool-manager
-kubebuilder init --domain codefuthure.io  --owner "codeFuthure"
-kubebuilder create api --group codefuthure --version v1alpha1 --kind NodePool
-kubebuilder create api --group codefuthure --version v1alpha1 --kind NodePoolBinding
+go clean --modcache
+go mod init github.io/codefuture/kube-nodepool-manager
+kubebuilder init --domain codefuture.io  --owner "CodeFuture"
+kubebuilder edit --multigroup=true
+kubebuilder create api --version v1alpha1 --kind NodePool
+kubebuilder create api --version v1alpha1 --kind NodePoolBinding
